@@ -1,0 +1,28 @@
+# Equivalency
+# T & T --> T
+# T & F --> F
+# F & T --> F
+# F & F --> T
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# Not
+combinator Not (\x.x $False $True) ;
+
+# XOR
+combinator xor (\x.\y. x (y $False $True) y) ;
+
+# Equivalent
+combinator equiv (\x.\y. $Not ($xor x y)) ;
+
+# Evaluate the expression
+#evaluate $equiv $True $True ;
+#evaluate $equiv $True $False ;
+#evaluate $equiv $False $True ;
+#evaluate $equiv $False $False ;

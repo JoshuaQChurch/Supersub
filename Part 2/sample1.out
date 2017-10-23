@@ -1,0 +1,33 @@
+Eval expression: a
+Eval expression: (a b)
+Eval expression: ((a b) c)
+Eval expression: ((a b) c)
+Eval expression: ((a b) c)
+Eval expression: (a (b c))
+Eval expression: ((a b) c)
+Eval expression: {\a.b}
+Eval expression: {\a.b}
+Eval expression: {\a.b}
+Eval expression: {\a.{\b.(b a)}}
+Eval expression: {\a.(a {\b.(b a)})}
+Eval expression: {\a.(b {\c.($I {\d.((((e f) g) (h i)) j)})})}
+let depth 10
+let size 66
+let length 10
+let test 20
+Combinator Dictionary is:
+M: {\x.{\y.{\z.(x (y z))}}}
+N1: {\x.((x $T1) $T2)}
+N2: {\x.{\y.((x y) $T2)}}
+N3: {\x.{\y.((x $N1) y)}}
+P: {\n.(((n $Phi) {\z.(z ($Zero $Zero))}) $F)}
+PS: {\x.(x $S)}
+Phi: {\p.{\z.((z ($S (p $T))) (p $T))}}
+S: {\w.{\y.{\x.(y ((w y) x))}}}
+Snap: {\s.{\z.z}}
+T1: {\x.{\y.x}}
+T2: {\x.{\y.y}}
+Y: {\y.({\x.(y (x x))} {\x.(y (x x))})}
+Zt: {\x.(((x $F) $N) $F)}
+triple: {\x.((x x) x)}
+twice: {\x.(x x)}

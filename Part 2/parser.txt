@@ -1,0 +1,24 @@
+<P> => { <S> }
+       
+<S> => ( <J> | <K> | <L> | <M>) ';'
+
+<J> => combinator [ evaluate ] IDENTIFIER <A>
+
+<K> => evaluate <A> 
+
+<L> => dictionary
+
+<M> => set IDENTIFIER <E>
+
+<F> => '\' IDENTIFIER '.' <A> |  '{' <F> '}'
+
+<A> => <I> {<I>} % left associative
+
+<I> => CIDENTIFIER | IDENTIFIER | '(' <A> ')' |   <F>
+
+<E> => <T> { ( + | - ) <T> }
+
+<T> => <R> { ( * | / ) <R> }
+
+<R> => INTLIT | ( <E> )
+

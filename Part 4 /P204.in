@@ -1,0 +1,57 @@
+# Range
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Predecessor Function
+combinator P (\x.\f.\y.x (\z.\a.a (z f))(\b.y)(\b.b)) ;
+
+# Subtract Function
+combinator subtract \x.\y. y $P x ;
+
+# Number Addition
+combinator Add (\n.\m. \f.\x. n f (m f x)) ;
+
+# Pair
+combinator makePair \x.\y.\f. ((f x) y) ;
+
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+
+combinator empty {\f.\t. t} ;
+combinator push {\a.\l.(\f.\t. (f a) (l f t))} ;
+combinator top {\l. l $True $I} ;
+
+# Range
+combinator range \x.\y.\f. ($Add($subtract y x) $One) (f x);
+
+######
+# I know that what must be done, but I can't completely implement it.
+# I currently got the range value, but I need to push
+# whatever the pred of the current top.
+# I keep getting minor issues, so I left it in the
+# state to handle $One $One
+########
+
+# Evaluate the expressions
+#evaluate $range $Zero $Two ;
+#evaluate $range $Zero $One ;
+#evaluate $range $One $One ;

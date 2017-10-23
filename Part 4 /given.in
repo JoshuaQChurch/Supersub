@@ -1,0 +1,54 @@
+##############################################################################
+#Provided Combinators to use for Project #4
+##########################################################
+#Logical Operators
+combinator I (\x.x) ; # Identity operator
+combinator True (\x.\y.x) ; # True 
+combinator False (\x.\y.y) ; # False
+combinator Not (\x.x $False $True) ; #Not
+combinator And (\x.\y.x y $False) ;#AND
+combinator Or (\x.\y.x $True y) ;#OR
+##########################################################
+#control (Y combinator for recursion)
+combinator Y (\y.(\x.y(x x))(\x.y(x x))) ;
+##########################################################
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+# helpful shortcuts to numbers 1-10
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+# Number Addition
+combinator Add (\n.\m. \f.\x. n f (m f x)) ;
+# Number Multiplication
+combinator Mul {\x.\y.\z.x(y z)} ;
+# Predecessor Function
+combinator Phi (\p.\z.z($S (p $True))(p $True)) ;
+combinator P (\n.n $Phi(\z.z ($Zero $Zero)) $False) ;
+# Zero test (Return true if number is zero, false otherwise
+combinator Ztest (\x.x $False $Not $False) ;
+# Pair Tuple
+combinator makePair \x.\y.\f. ((f x) y) ;
+combinator first \f.f (\x.\y.x) ;
+combinator second \f.f (\x.\y.y) ;
+# List Helper Combinators
+combinator empty {\f.\t. t} ;
+combinator push {\a.\l.(\f.\t. (f a) (l f t))} ;
+combinator top {\l. l $True $I} ;
+# Example of using Y combinator to create Factorial function
+combinator factorialF (\f.\n. ($Ztest n $One ( $Mul n (f ($P n))))) ;
+combinator factorial $Y $factorialF ;
+# Helper Functions for Scott Encoding
+combinator szero {\x.\y.x} ;
+combinator succ {\p.\x.\f. f p} ;
+combinator pred {\p.p $I $I } ;
+##############################################################################

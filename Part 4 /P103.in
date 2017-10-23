@@ -1,0 +1,32 @@
+# This file will check if a number is even
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# Not
+combinator Not (\x.x $False $True) ;
+
+# Successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Even
+combinator even (\x.x $Not $True) ;
+
+# helpful shortcuts to numbers 1-10
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+
+# Evaluate the expression
+#evaluate $even $Zero ;
+#evaluate $even $One ;
+#evaluate $even $Two ;
+#evaluate $even $Five ;

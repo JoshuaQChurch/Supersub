@@ -1,0 +1,64 @@
+# Lists
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+
+# List Helper Combinators
+combinator makePair \x.\y.\f. ((f x) y) ;
+combinator first \f.f (\x.\y.x) ;
+combinator second \f.f (\x.\y.y) ;
+combinator empty {\f.\t. t} ;
+combinator push {\a.\l.(\f.\t. (f a) (l f t))} ;
+combinator top {\l. l $True $I} ;
+combinator pop {\l. ($first (l(\x.\y. $makePair($second y)($push x ($second y)))($makePair $empty $empty)))} ;
+
+# Y combinator
+combinator Y (\y.(\x.y(x x))(\x.y(x x))) ;
+
+# Concat
+combinator concat (\a.\l.\f.\x. a f (l f x)) ;
+
+# Check if empty
+combinator isempty (\l.l (\x.\y. $False) $True) ;
+
+# Get length of list
+combinator listlen $Y (\a.\b.\l. $isempty l b (a ($S b) ($pop l))) $Zero ;
+
+# Populate the lists
+combinator list1 $push $One ($push $Two ($push $Three $empty)) ;
+combinator list2 $push $Four ($push $Five $empty) ;
+
+# Evaluate the expressions
+#evaluate $concat $list1 $list2 ;
+#evaluate $concat $list2 $list1 ;
+#evaluate $concat $empty $empty ;
+#evaluate $concat $list1 $empty ;
+#evaluate $concat $empty $list2 ;
+#evaluate $isempty $empty ;
+#evaluate $isempty $list1 ;
+#evaluate $isempty $list2 ;
+#evaluate $listlen $list1 ;
+#evaluate $listlen $list2 ;
+#evaluate $listlen ($concat $list1 $list2) ;
+#evaluate $listlen $empty ;

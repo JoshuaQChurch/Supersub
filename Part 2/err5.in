@@ -1,0 +1,2 @@
+#set error
+set val 10+(3 * 5 4) ;

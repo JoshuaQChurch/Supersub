@@ -1,0 +1,44 @@
+# Less than or equal to
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# Not
+combinator Not (\x.x $False $True) ;
+
+# Successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Predecessor Function
+combinator P (\x.\f.\y.x (\z.\a.a (z f))(\b.y)(\b.b)) ;
+
+# Zero test (Return true if number is zero, false otherwise
+combinator Ztest (\x.x $False $Not $False) ;
+
+# Subtract Function
+combinator subtract \x.\y. y $P x ;
+
+# Less than or equal
+combinator leq (\x.\y. $Ztest ($subtract x y)) ;
+
+# helpful shortcuts to numbers 1-10
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+
+# Evaluate the expression
+# evaluate $leq $Zero $Zero ;
+#evaluate $leq $Five $Three ;
+#evaluate $leq $Five $Five ;
+#evaluate $leq $Three $Six ;

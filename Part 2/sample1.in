@@ -1,0 +1,39 @@
+# Test of increasingly complex expressions
+evaluate a ;
+evaluate a b ;
+evaluate a b c ;
+evaluate (a) b c ;
+evaluate (a b) c ;
+evaluate a (b c) ;
+evaluate a b (c) ;
+evaluate \a.b ;
+evaluate {\a.b} ;
+evaluate (\a.b) ;
+evaluate \a.\b.b a ;
+evaluate \a.a \b. b a ;
+evaluate \a.b \c. $I \d.e f g (h i) j ;
+#combinator command test
+combinator twice (((\x. x x))) ;
+combinator evaluate triple {\x. x x x} ;
+#set command test
+set depth 10 ;
+set size 100-12*3+8/4 ;
+set length 2*(30-20)-100/10 ;
+set test (((20))) ;
+#more combinator tests
+combinator evaluate T1 (\x.\y.x) ; 
+combinator evaluate T2 (\x.\y.y) ; 
+combinator N1 (\x.x $T1 $T2) ; 
+combinator N2 (\x.\y.x y $T2) ;
+combinator N3 (\x.\y.x $N1 y) ;
+combinator Y (\y.(\x.y(x x))(\x.y(x x))) ;
+combinator evaluate Snap \s.\z.z ;
+combinator S \w.\y.\x. y (w y x) ;
+combinator PS (\x.x $S) ;
+combinator M {\x.\y.\z.x(y z)} ;
+combinator Phi (\p.\z.z($S (p $T))(p $T)) ;
+combinator P (\n.n $Phi(\z.z ($Zero $Zero)) $F) ;
+combinator Zt (\x.x$F $N $F) ;
+# Print out dictionary
+dictionary ;
+#last line

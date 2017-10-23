@@ -1,0 +1,132 @@
+evaluatePreOrder with expression: ($Y ($N $X))
+0--({\x.({\y.(x (y y))} {\z.(x (z z))})} ($N $X))
+1--({\y.(($N $X) (y y))} {\z.(($N $X) (z z))})
+2--(($N $X) ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+3--(({\b.((b $F) $X)} $X) ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+4--((($X $F) $X) ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+5--((({\c.{\d.c}} $F) $X) ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+6--(({\d.$F} $X) ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+7--($F ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+8--({\e.{\f.f}} ({\z.(($N $X) (z z))} {\a.(($N $X) (a a))}))
+9--{\f.f}
+Expression Evaluates To: {\x.x}
+evaluatePreOrder with expression: (($A1 $C1) $C2)
+0--(({\x.(x $S)} $C1) $C2)
+1--(($C1 $S) $C2)
+2--(({\y.{\z.(y z)}} $S) $C2)
+3--({\z.($S z)} $C2)
+4--($S $C2)
+5--({\a.{\b.{\c.(b ((a b) c))}}} $C2)
+6--{\b.{\c.(b (($C2 b) c))}}
+7--{\b.{\c.(b ((($S $C1) b) c))}}
+8--{\b.{\c.(b ((({\d.{\e.{\f.(e ((d e) f))}}} $C1) b) c))}}
+9--{\b.{\c.(b (({\e.{\f.(e (($C1 e) f))}} b) c))}}
+10--{\b.{\c.(b ({\f.(b (($C1 b) f))} c))}}
+11--{\b.{\c.(b (b (($C1 b) c)))}}
+12--{\b.{\c.(b (b (({\g.{\h.(g h)}} b) c)))}}
+13--{\b.{\c.(b (b ({\h.(b h)} c)))}}
+14--{\b.{\c.(b (b (b c)))}}
+Expression Evaluates To: {\x.{\y.(x (x (x y)))}}
+evaluatePreOrder with expression: (($M1 $F) $C2)
+0--(({\x.{\y.{\z.(x (y z))}}} $F) $C2)
+1--({\y.{\z.($F (y z))}} $C2)
+2--{\z.($F ($C2 z))}
+3--{\z.({\a.{\b.b}} ($C2 z))}
+4--{\z.{\b.b}}
+Expression Evaluates To: {\x.{\y.y}}
+evaluatePreOrder with expression: (($F (($M1 $C1) $C2)) (($A1 $C1) $C2))
+0--(({\x.{\y.y}} (($M1 $C1) $C2)) (($A1 $C1) $C2))
+1--({\y.y} (($A1 $C1) $C2))
+2--(($A1 $C1) $C2)
+3--(({\z.(z $S)} $C1) $C2)
+4--(($C1 $S) $C2)
+5--(({\a.{\b.(a b)}} $S) $C2)
+6--({\b.($S b)} $C2)
+7--($S $C2)
+8--({\c.{\d.{\e.(d ((c d) e))}}} $C2)
+9--{\d.{\e.(d (($C2 d) e))}}
+10--{\d.{\e.(d ((($S $C1) d) e))}}
+11--{\d.{\e.(d ((({\f.{\g.{\h.(g ((f g) h))}}} $C1) d) e))}}
+12--{\d.{\e.(d (({\g.{\h.(g (($C1 g) h))}} d) e))}}
+13--{\d.{\e.(d ({\h.(d (($C1 d) h))} e))}}
+14--{\d.{\e.(d (d (($C1 d) e)))}}
+15--{\d.{\e.(d (d (({\i.{\j.(i j)}} d) e)))}}
+16--{\d.{\e.(d (d ({\j.(d j)} e)))}}
+17--{\d.{\e.(d (d (d e)))}}
+Expression Evaluates To: {\x.{\y.(x (x (x y)))}}
+evaluatePostOrder with expression: (($A1 $C1) $C2)
+0--(({\x.(x $S)} $C1) $C2)
+1--(($C1 $S) $C2)
+2--(({\y.{\z.(y z)}} $S) $C2)
+3--({\z.($S z)} $C2)
+4--({\z.({\a.{\b.{\c.(b ((a b) c))}}} z)} $C2)
+5--({\z.{\b.{\c.(b ((z b) c))}}} $C2)
+6--{\b.{\c.(b (($C2 b) c))}}
+7--{\b.{\c.(b ((($S $C1) b) c))}}
+8--{\b.{\c.(b ((({\d.{\e.{\f.(e ((d e) f))}}} $C1) b) c))}}
+9--{\b.{\c.(b (({\e.{\f.(e (($C1 e) f))}} b) c))}}
+10--{\b.{\c.(b (({\e.{\f.(e (({\g.{\h.(g h)}} e) f))}} b) c))}}
+11--{\b.{\c.(b (({\e.{\f.(e ({\h.(e h)} f))}} b) c))}}
+12--{\b.{\c.(b (({\e.{\f.(e (e f))}} b) c))}}
+13--{\b.{\c.(b ({\f.(b (b f))} c))}}
+14--{\b.{\c.(b (b (b c)))}}
+Expression Evaluates To: {\x.{\y.(x (x (x y)))}}
+evaluatePostOrder with expression: (($M1 $F) $C2)
+0--(({\x.{\y.{\z.(x (y z))}}} $F) $C2)
+1--({\y.{\z.($F (y z))}} $C2)
+2--({\y.{\z.({\a.{\b.b}} (y z))}} $C2)
+3--({\y.{\z.{\b.b}}} $C2)
+4--{\z.{\b.b}}
+Expression Evaluates To: {\x.{\y.y}}
+evaluatePostOrder with expression: (($F (($M1 $C1) $C2)) (($A1 $C1) $C2))
+0--(($F (({\x.{\y.{\z.(x (y z))}}} $C1) $C2)) (($A1 $C1) $C2))
+1--(($F ({\y.{\z.($C1 (y z))}} $C2)) (($A1 $C1) $C2))
+2--(($F ({\y.{\z.({\a.{\b.(a b)}} (y z))}} $C2)) (($A1 $C1) $C2))
+3--(($F ({\y.{\z.{\b.((y z) b)}}} $C2)) (($A1 $C1) $C2))
+4--(($F {\z.{\b.(($C2 z) b)}}) (($A1 $C1) $C2))
+5--(($F {\z.{\b.((($S $C1) z) b)}}) (($A1 $C1) $C2))
+6--(($F {\z.{\b.((({\c.{\d.{\e.(d ((c d) e))}}} $C1) z) b)}}) (($A1 $C1) $C2))
+7--(($F {\z.{\b.(({\d.{\e.(d (($C1 d) e))}} z) b)}}) (($A1 $C1) $C2))
+8--(($F {\z.{\b.(({\d.{\e.(d (({\f.{\g.(f g)}} d) e))}} z) b)}}) (($A1 $C1) $C2))
+9--(($F {\z.{\b.(({\d.{\e.(d ({\g.(d g)} e))}} z) b)}}) (($A1 $C1) $C2))
+10--(($F {\z.{\b.(({\d.{\e.(d (d e))}} z) b)}}) (($A1 $C1) $C2))
+11--(($F {\z.{\b.({\e.(z (z e))} b)}}) (($A1 $C1) $C2))
+12--(($F {\z.{\b.(z (z b))}}) (($A1 $C1) $C2))
+13--(({\h.{\i.i}} {\z.{\b.(z (z b))}}) (($A1 $C1) $C2))
+14--({\i.i} (($A1 $C1) $C2))
+15--({\i.i} (({\j.(j $S)} $C1) $C2))
+16--({\i.i} (($C1 $S) $C2))
+17--({\i.i} (({\k.{\l.(k l)}} $S) $C2))
+18--({\i.i} ({\l.($S l)} $C2))
+19--({\i.i} ({\l.({\m.{\n.{\o.(n ((m n) o))}}} l)} $C2))
+20--({\i.i} ({\l.{\n.{\o.(n ((l n) o))}}} $C2))
+21--({\i.i} {\n.{\o.(n (($C2 n) o))}})
+22--({\i.i} {\n.{\o.(n ((($S $C1) n) o))}})
+23--({\i.i} {\n.{\o.(n ((({\p.{\q.{\r.(q ((p q) r))}}} $C1) n) o))}})
+24--({\i.i} {\n.{\o.(n (({\q.{\r.(q (($C1 q) r))}} n) o))}})
+25--({\i.i} {\n.{\o.(n (({\q.{\r.(q (({\s.{\t.(s t)}} q) r))}} n) o))}})
+26--({\i.i} {\n.{\o.(n (({\q.{\r.(q ({\t.(q t)} r))}} n) o))}})
+27--({\i.i} {\n.{\o.(n (({\q.{\r.(q (q r))}} n) o))}})
+28--({\i.i} {\n.{\o.(n ({\r.(n (n r))} o))}})
+29--({\i.i} {\n.{\o.(n (n (n o)))}})
+30--{\n.{\o.(n (n (n o)))}}
+Expression Evaluates To: {\x.{\y.(x (x (x y)))}}
+Expression Evaluates To: {\x.{\y.(x (x (x (x (x (x (x (x (x (x (x (x (x (x (x (x y))))))))))))))))}}
+maximum number of steps exceeded!
+Expression Evaluates To: ({\x.(x (x (x (x (x (x (x (x (x (x (x (x (x (x ({\y.(x (y y))} {\z.(x (z z))})))))))))))))))} $F)
+Combinator Dictionary is:
+A: {\x.{\y.((x y) $F)}}
+A1: {\x.(x $S)}
+C1: {\x.{\y.(x y)}}
+C2: ($S $C1)
+F: {\x.{\y.y}}
+M1: {\x.{\y.{\z.(x (y z))}}}
+N: {\x.((x $F) $X)}
+O: {\x.{\y.((x $X) y)}}
+S: {\x.{\y.{\z.(y ((x y) z))}}}
+X: {\x.{\y.x}}
+Y: {\x.({\y.(x (y y))} {\z.(x (z z))})}
+variableSettings:
+maxEvalSteps: 20
+preOrderEvaluate: 0
+printLevel: 0

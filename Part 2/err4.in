@@ -1,0 +1,2 @@
+#unclosed paranthesis
+evaluate (\x.(\y.x x y) ;

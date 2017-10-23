@@ -1,0 +1,8 @@
+This directory contains some files that you can add to your existing
+parser.  This includes a makefile that will compile the additional
+interpreter.cpp file and link all of the files together to generate a
+supersub.exe executable file.  The interpreter.cpp provides an example
+utility that will rename the variables of a parse tree.  Use this as
+an example for how to do other parts of the intepreter since most of
+the operations that you will need to implement should follow a similar
+structure.

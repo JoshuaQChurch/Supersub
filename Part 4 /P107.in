@@ -1,0 +1,34 @@
+# Power of 2
+
+set printLevel 0 ;
+combinator True (\x.\y.x) ; # True
+combinator False (\x.\y.y) ; # False
+combinator Not (\x.x $False $True) ; #Not
+
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Zero test (Return true if number is zero, false otherwise
+combinator Ztest (\x.x $False $Not $False) ;
+
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+
+# Power of 2
+combinator power2 (\x. $Ztest x $One (x $Two)) ;
+
+# Evaluate the expression
+#evaluate $power2 $Zero ;
+#evaluate $power2 $One ;
+#evaluate $power2 $Two ;
+#evaluate $power2 $Three ;

@@ -1,0 +1,22 @@
+# Truth Table
+# T, T --> T
+# T, F --> F
+# F, T --> T
+# F, F --> T
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# Implies
+combinator implies (\x.\y. x y $True) ;
+
+# Evaluate the expression
+#evaluate $implies $True $True ;
+#evaluate $implies $True $False ;
+#evaluate $implies $False $True ;
+#evaluate $implies $False $False ;

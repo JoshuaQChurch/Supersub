@@ -1,0 +1,1182 @@
+enter P 0
+ enter S 0
+  enter K 0
+  found 'evaluate'
+   enter A 0
+    enter I 0
+    found identifier'a'
+    exit I 0
+   exit A 0
+Eval expression: a
+  exit K 0
+ found ';'
+ exit S 0
+ enter S 1
+  enter K 1
+  found 'evaluate'
+   enter A 1
+    enter I 1
+    found identifier'a'
+    exit I 1
+    enter I 2
+    found identifier'b'
+    exit I 2
+   exit A 1
+Eval expression: (a b)
+  exit K 1
+ found ';'
+ exit S 1
+ enter S 2
+  enter K 2
+  found 'evaluate'
+   enter A 2
+    enter I 3
+    found identifier'a'
+    exit I 3
+    enter I 4
+    found identifier'b'
+    exit I 4
+    enter I 5
+    found identifier'c'
+    exit I 5
+   exit A 2
+Eval expression: ((a b) c)
+  exit K 2
+ found ';'
+ exit S 2
+ enter S 3
+  enter K 3
+  found 'evaluate'
+   enter A 3
+    enter I 6
+    found '('
+     enter A 4
+      enter I 7
+      found identifier'a'
+      exit I 7
+     exit A 4
+    found ')'
+    exit I 6
+    enter I 8
+    found identifier'b'
+    exit I 8
+    enter I 9
+    found identifier'c'
+    exit I 9
+   exit A 3
+Eval expression: ((a b) c)
+  exit K 3
+ found ';'
+ exit S 3
+ enter S 4
+  enter K 4
+  found 'evaluate'
+   enter A 5
+    enter I 10
+    found '('
+     enter A 6
+      enter I 11
+      found identifier'a'
+      exit I 11
+      enter I 12
+      found identifier'b'
+      exit I 12
+     exit A 6
+    found ')'
+    exit I 10
+    enter I 13
+    found identifier'c'
+    exit I 13
+   exit A 5
+Eval expression: ((a b) c)
+  exit K 4
+ found ';'
+ exit S 4
+ enter S 5
+  enter K 5
+  found 'evaluate'
+   enter A 7
+    enter I 14
+    found identifier'a'
+    exit I 14
+    enter I 15
+    found '('
+     enter A 8
+      enter I 16
+      found identifier'b'
+      exit I 16
+      enter I 17
+      found identifier'c'
+      exit I 17
+     exit A 8
+    found ')'
+    exit I 15
+   exit A 7
+Eval expression: (a (b c))
+  exit K 5
+ found ';'
+ exit S 5
+ enter S 6
+  enter K 6
+  found 'evaluate'
+   enter A 9
+    enter I 18
+    found identifier'a'
+    exit I 18
+    enter I 19
+    found identifier'b'
+    exit I 19
+    enter I 20
+    found '('
+     enter A 10
+      enter I 21
+      found identifier'c'
+      exit I 21
+     exit A 10
+    found ')'
+    exit I 20
+   exit A 9
+Eval expression: ((a b) c)
+  exit K 6
+ found ';'
+ exit S 6
+ enter S 7
+  enter K 7
+  found 'evaluate'
+   enter A 11
+    enter I 22
+     enter F 0
+     found ''
+     found identifier 'a'
+     found '.'
+      enter A 12
+       enter I 23
+       found identifier'b'
+       exit I 23
+      exit A 12
+     leave F 0[ name = a argument= b ]
+    exit I 22
+   exit A 11
+Eval expression: {\a.b}
+  exit K 7
+ found ';'
+ exit S 7
+ enter S 8
+  enter K 8
+  found 'evaluate'
+   enter A 13
+    enter I 24
+     enter F 1
+      enter F 2
+      found ''
+      found identifier 'a'
+      found '.'
+       enter A 14
+        enter I 25
+        found identifier'b'
+        exit I 25
+       exit A 14
+      leave F 2[ name = a argument= b ]
+     leave F 1[ name = a argument= b ]
+    exit I 24
+   exit A 13
+Eval expression: {\a.b}
+  exit K 8
+ found ';'
+ exit S 8
+ enter S 9
+  enter K 9
+  found 'evaluate'
+   enter A 15
+    enter I 26
+    found '('
+     enter A 16
+      enter I 27
+       enter F 3
+       found ''
+       found identifier 'a'
+       found '.'
+        enter A 17
+         enter I 28
+         found identifier'b'
+         exit I 28
+        exit A 17
+       leave F 3[ name = a argument= b ]
+      exit I 27
+     exit A 16
+    found ')'
+    exit I 26
+   exit A 15
+Eval expression: {\a.b}
+  exit K 9
+ found ';'
+ exit S 9
+ enter S 10
+  enter K 10
+  found 'evaluate'
+   enter A 18
+    enter I 29
+     enter F 4
+     found ''
+     found identifier 'a'
+     found '.'
+      enter A 19
+       enter I 30
+        enter F 5
+        found ''
+        found identifier 'b'
+        found '.'
+         enter A 20
+          enter I 31
+          found identifier'b'
+          exit I 31
+          enter I 32
+          found identifier'a'
+          exit I 32
+         exit A 20
+        leave F 5[ name = b argument= (b a) ]
+       exit I 30
+      exit A 19
+     leave F 4[ name = a argument= {\b.(b a)} ]
+    exit I 29
+   exit A 18
+Eval expression: {\a.{\b.(b a)}}
+  exit K 10
+ found ';'
+ exit S 10
+ enter S 11
+  enter K 11
+  found 'evaluate'
+   enter A 21
+    enter I 33
+     enter F 6
+     found ''
+     found identifier 'a'
+     found '.'
+      enter A 22
+       enter I 34
+       found identifier'a'
+       exit I 34
+       enter I 35
+        enter F 7
+        found ''
+        found identifier 'b'
+        found '.'
+         enter A 23
+          enter I 36
+          found identifier'b'
+          exit I 36
+          enter I 37
+          found identifier'a'
+          exit I 37
+         exit A 23
+        leave F 7[ name = b argument= (b a) ]
+       exit I 35
+      exit A 22
+     leave F 6[ name = a argument= (a {\b.(b a)}) ]
+    exit I 33
+   exit A 21
+Eval expression: {\a.(a {\b.(b a)})}
+  exit K 11
+ found ';'
+ exit S 11
+ enter S 12
+  enter K 12
+  found 'evaluate'
+   enter A 24
+    enter I 38
+     enter F 8
+     found ''
+     found identifier 'a'
+     found '.'
+      enter A 25
+       enter I 39
+       found identifier'b'
+       exit I 39
+       enter I 40
+        enter F 9
+        found ''
+        found identifier 'c'
+        found '.'
+         enter A 26
+          enter I 41
+          found Cidentifier'$I'
+          exit I 41
+          enter I 42
+           enter F 10
+           found ''
+           found identifier 'd'
+           found '.'
+            enter A 27
+             enter I 43
+             found identifier'e'
+             exit I 43
+             enter I 44
+             found identifier'f'
+             exit I 44
+             enter I 45
+             found identifier'g'
+             exit I 45
+             enter I 46
+             found '('
+              enter A 28
+               enter I 47
+               found identifier'h'
+               exit I 47
+               enter I 48
+               found identifier'i'
+               exit I 48
+              exit A 28
+             found ')'
+             exit I 46
+             enter I 49
+             found identifier'j'
+             exit I 49
+            exit A 27
+           leave F 10[ name = d argument= ((((e f) g) (h i)) j) ]
+          exit I 42
+         exit A 26
+        leave F 9[ name = c argument= ($I {\d.((((e f) g) (h i)) j)}) ]
+       exit I 40
+      exit A 25
+     leave F 8[ name = a argument= (b {\c.($I {\d.((((e f) g) (h i)) j)})}) ]
+    exit I 38
+   exit A 24
+Eval expression: {\a.(b {\c.($I {\d.((((e f) g) (h i)) j)})})}
+  exit K 12
+ found ';'
+ exit S 12
+ enter S 13
+  enter J 0
+  found 'combinator'
+  found identifier 'twice'
+   enter A 29
+    enter I 50
+    found '('
+     enter A 30
+      enter I 51
+      found '('
+       enter A 31
+        enter I 52
+        found '('
+         enter A 32
+          enter I 53
+           enter F 11
+           found ''
+           found identifier 'x'
+           found '.'
+            enter A 33
+             enter I 54
+             found identifier'x'
+             exit I 54
+             enter I 55
+             found identifier'x'
+             exit I 55
+            exit A 33
+           leave F 11[ name = x argument= (x x) ]
+          exit I 53
+         exit A 32
+        found ')'
+        exit I 52
+       exit A 31
+      found ')'
+      exit I 51
+     exit A 30
+    found ')'
+    exit I 50
+   exit A 29
+  exit J 0
+ found ';'
+ exit S 13
+ enter S 14
+  enter J 1
+  found 'combinator'
+  found 'evaluate'
+  found identifier 'triple'
+   enter A 34
+    enter I 56
+     enter F 12
+      enter F 13
+      found ''
+      found identifier 'x'
+      found '.'
+       enter A 35
+        enter I 57
+        found identifier'x'
+        exit I 57
+        enter I 58
+        found identifier'x'
+        exit I 58
+        enter I 59
+        found identifier'x'
+        exit I 59
+       exit A 35
+      leave F 13[ name = x argument= ((x x) x) ]
+     leave F 12[ name = x argument= ((x x) x) ]
+    exit I 56
+   exit A 34
+  exit J 1
+ found ';'
+ exit S 14
+ enter S 15
+  enter M 0
+  found 'set'
+  found identifier 'depth'
+   enter E 0
+    enter T 0
+     enter R 0
+     found '10'
+     exit R 0
+    exit T 0
+   exit E 0
+let depth 10
+  exit M 0
+ found ';'
+ exit S 15
+ enter S 16
+  enter M 1
+  found 'set'
+  found identifier 'size'
+   enter E 1
+    enter T 1
+     enter R 1
+     found '100'
+     exit R 1
+    exit T 1
+   found '-'
+    enter T 2
+     enter R 2
+     found '12'
+     exit R 2
+    found '*'
+     enter R 3
+     found '3'
+     exit R 3
+    exit T 2
+   found '+'
+    enter T 3
+     enter R 4
+     found '8'
+     exit R 4
+    found '/'
+     enter R 5
+     found '4'
+     exit R 5
+    exit T 3
+   exit E 1
+let size 66
+  exit M 1
+ found ';'
+ exit S 16
+ enter S 17
+  enter M 2
+  found 'set'
+  found identifier 'length'
+   enter E 2
+    enter T 4
+     enter R 6
+     found '2'
+     exit R 6
+    found '*'
+     enter R 7
+     found '('
+      enter E 3
+       enter T 5
+        enter R 8
+        found '30'
+        exit R 8
+       exit T 5
+      found '-'
+       enter T 6
+        enter R 9
+        found '20'
+        exit R 9
+       exit T 6
+      exit E 3
+     exit R 7
+    exit T 4
+   found '-'
+    enter T 7
+     enter R 10
+     found '100'
+     exit R 10
+    found '/'
+     enter R 11
+     found '10'
+     exit R 11
+    exit T 7
+   exit E 2
+let length 10
+  exit M 2
+ found ';'
+ exit S 17
+ enter S 18
+  enter M 3
+  found 'set'
+  found identifier 'test'
+   enter E 4
+    enter T 8
+     enter R 12
+     found '('
+      enter E 5
+       enter T 9
+        enter R 13
+        found '('
+         enter E 6
+          enter T 10
+           enter R 14
+           found '('
+            enter E 7
+             enter T 11
+              enter R 15
+              found '20'
+              exit R 15
+             exit T 11
+            exit E 7
+           exit R 14
+          exit T 10
+         exit E 6
+        exit R 13
+       exit T 9
+      exit E 5
+     exit R 12
+    exit T 8
+   exit E 4
+let test 20
+  exit M 3
+ found ';'
+ exit S 18
+ enter S 19
+  enter J 2
+  found 'combinator'
+  found 'evaluate'
+  found identifier 'T1'
+   enter A 36
+    enter I 60
+    found '('
+     enter A 37
+      enter I 61
+       enter F 14
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 38
+         enter I 62
+          enter F 15
+          found ''
+          found identifier 'y'
+          found '.'
+           enter A 39
+            enter I 63
+            found identifier'x'
+            exit I 63
+           exit A 39
+          leave F 15[ name = y argument= x ]
+         exit I 62
+        exit A 38
+       leave F 14[ name = x argument= {\y.x} ]
+      exit I 61
+     exit A 37
+    found ')'
+    exit I 60
+   exit A 36
+  exit J 2
+ found ';'
+ exit S 19
+ enter S 20
+  enter J 3
+  found 'combinator'
+  found 'evaluate'
+  found identifier 'T2'
+   enter A 40
+    enter I 64
+    found '('
+     enter A 41
+      enter I 65
+       enter F 16
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 42
+         enter I 66
+          enter F 17
+          found ''
+          found identifier 'y'
+          found '.'
+           enter A 43
+            enter I 67
+            found identifier'y'
+            exit I 67
+           exit A 43
+          leave F 17[ name = y argument= y ]
+         exit I 66
+        exit A 42
+       leave F 16[ name = x argument= {\y.y} ]
+      exit I 65
+     exit A 41
+    found ')'
+    exit I 64
+   exit A 40
+  exit J 3
+ found ';'
+ exit S 20
+ enter S 21
+  enter J 4
+  found 'combinator'
+  found identifier 'N1'
+   enter A 44
+    enter I 68
+    found '('
+     enter A 45
+      enter I 69
+       enter F 18
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 46
+         enter I 70
+         found identifier'x'
+         exit I 70
+         enter I 71
+         found Cidentifier'$T1'
+         exit I 71
+         enter I 72
+         found Cidentifier'$T2'
+         exit I 72
+        exit A 46
+       leave F 18[ name = x argument= ((x $T1) $T2) ]
+      exit I 69
+     exit A 45
+    found ')'
+    exit I 68
+   exit A 44
+  exit J 4
+ found ';'
+ exit S 21
+ enter S 22
+  enter J 5
+  found 'combinator'
+  found identifier 'N2'
+   enter A 47
+    enter I 73
+    found '('
+     enter A 48
+      enter I 74
+       enter F 19
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 49
+         enter I 75
+          enter F 20
+          found ''
+          found identifier 'y'
+          found '.'
+           enter A 50
+            enter I 76
+            found identifier'x'
+            exit I 76
+            enter I 77
+            found identifier'y'
+            exit I 77
+            enter I 78
+            found Cidentifier'$T2'
+            exit I 78
+           exit A 50
+          leave F 20[ name = y argument= ((x y) $T2) ]
+         exit I 75
+        exit A 49
+       leave F 19[ name = x argument= {\y.((x y) $T2)} ]
+      exit I 74
+     exit A 48
+    found ')'
+    exit I 73
+   exit A 47
+  exit J 5
+ found ';'
+ exit S 22
+ enter S 23
+  enter J 6
+  found 'combinator'
+  found identifier 'N3'
+   enter A 51
+    enter I 79
+    found '('
+     enter A 52
+      enter I 80
+       enter F 21
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 53
+         enter I 81
+          enter F 22
+          found ''
+          found identifier 'y'
+          found '.'
+           enter A 54
+            enter I 82
+            found identifier'x'
+            exit I 82
+            enter I 83
+            found Cidentifier'$N1'
+            exit I 83
+            enter I 84
+            found identifier'y'
+            exit I 84
+           exit A 54
+          leave F 22[ name = y argument= ((x $N1) y) ]
+         exit I 81
+        exit A 53
+       leave F 21[ name = x argument= {\y.((x $N1) y)} ]
+      exit I 80
+     exit A 52
+    found ')'
+    exit I 79
+   exit A 51
+  exit J 6
+ found ';'
+ exit S 23
+ enter S 24
+  enter J 7
+  found 'combinator'
+  found identifier 'Y'
+   enter A 55
+    enter I 85
+    found '('
+     enter A 56
+      enter I 86
+       enter F 23
+       found ''
+       found identifier 'y'
+       found '.'
+        enter A 57
+         enter I 87
+         found '('
+          enter A 58
+           enter I 88
+            enter F 24
+            found ''
+            found identifier 'x'
+            found '.'
+             enter A 59
+              enter I 89
+              found identifier'y'
+              exit I 89
+              enter I 90
+              found '('
+               enter A 60
+                enter I 91
+                found identifier'x'
+                exit I 91
+                enter I 92
+                found identifier'x'
+                exit I 92
+               exit A 60
+              found ')'
+              exit I 90
+             exit A 59
+            leave F 24[ name = x argument= (y (x x)) ]
+           exit I 88
+          exit A 58
+         found ')'
+         exit I 87
+         enter I 93
+         found '('
+          enter A 61
+           enter I 94
+            enter F 25
+            found ''
+            found identifier 'x'
+            found '.'
+             enter A 62
+              enter I 95
+              found identifier'y'
+              exit I 95
+              enter I 96
+              found '('
+               enter A 63
+                enter I 97
+                found identifier'x'
+                exit I 97
+                enter I 98
+                found identifier'x'
+                exit I 98
+               exit A 63
+              found ')'
+              exit I 96
+             exit A 62
+            leave F 25[ name = x argument= (y (x x)) ]
+           exit I 94
+          exit A 61
+         found ')'
+         exit I 93
+        exit A 57
+       leave F 23[ name = y argument= ({\x.(y (x x))} {\x.(y (x x))}) ]
+      exit I 86
+     exit A 56
+    found ')'
+    exit I 85
+   exit A 55
+  exit J 7
+ found ';'
+ exit S 24
+ enter S 25
+  enter J 8
+  found 'combinator'
+  found 'evaluate'
+  found identifier 'Snap'
+   enter A 64
+    enter I 99
+     enter F 26
+     found ''
+     found identifier 's'
+     found '.'
+      enter A 65
+       enter I 100
+        enter F 27
+        found ''
+        found identifier 'z'
+        found '.'
+         enter A 66
+          enter I 101
+          found identifier'z'
+          exit I 101
+         exit A 66
+        leave F 27[ name = z argument= z ]
+       exit I 100
+      exit A 65
+     leave F 26[ name = s argument= {\z.z} ]
+    exit I 99
+   exit A 64
+  exit J 8
+ found ';'
+ exit S 25
+ enter S 26
+  enter J 9
+  found 'combinator'
+  found identifier 'S'
+   enter A 67
+    enter I 102
+     enter F 28
+     found ''
+     found identifier 'w'
+     found '.'
+      enter A 68
+       enter I 103
+        enter F 29
+        found ''
+        found identifier 'y'
+        found '.'
+         enter A 69
+          enter I 104
+           enter F 30
+           found ''
+           found identifier 'x'
+           found '.'
+            enter A 70
+             enter I 105
+             found identifier'y'
+             exit I 105
+             enter I 106
+             found '('
+              enter A 71
+               enter I 107
+               found identifier'w'
+               exit I 107
+               enter I 108
+               found identifier'y'
+               exit I 108
+               enter I 109
+               found identifier'x'
+               exit I 109
+              exit A 71
+             found ')'
+             exit I 106
+            exit A 70
+           leave F 30[ name = x argument= (y ((w y) x)) ]
+          exit I 104
+         exit A 69
+        leave F 29[ name = y argument= {\x.(y ((w y) x))} ]
+       exit I 103
+      exit A 68
+     leave F 28[ name = w argument= {\y.{\x.(y ((w y) x))}} ]
+    exit I 102
+   exit A 67
+  exit J 9
+ found ';'
+ exit S 26
+ enter S 27
+  enter J 10
+  found 'combinator'
+  found identifier 'PS'
+   enter A 72
+    enter I 110
+    found '('
+     enter A 73
+      enter I 111
+       enter F 31
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 74
+         enter I 112
+         found identifier'x'
+         exit I 112
+         enter I 113
+         found Cidentifier'$S'
+         exit I 113
+        exit A 74
+       leave F 31[ name = x argument= (x $S) ]
+      exit I 111
+     exit A 73
+    found ')'
+    exit I 110
+   exit A 72
+  exit J 10
+ found ';'
+ exit S 27
+ enter S 28
+  enter J 11
+  found 'combinator'
+  found identifier 'M'
+   enter A 75
+    enter I 114
+     enter F 32
+      enter F 33
+      found ''
+      found identifier 'x'
+      found '.'
+       enter A 76
+        enter I 115
+         enter F 34
+         found ''
+         found identifier 'y'
+         found '.'
+          enter A 77
+           enter I 116
+            enter F 35
+            found ''
+            found identifier 'z'
+            found '.'
+             enter A 78
+              enter I 117
+              found identifier'x'
+              exit I 117
+              enter I 118
+              found '('
+               enter A 79
+                enter I 119
+                found identifier'y'
+                exit I 119
+                enter I 120
+                found identifier'z'
+                exit I 120
+               exit A 79
+              found ')'
+              exit I 118
+             exit A 78
+            leave F 35[ name = z argument= (x (y z)) ]
+           exit I 116
+          exit A 77
+         leave F 34[ name = y argument= {\z.(x (y z))} ]
+        exit I 115
+       exit A 76
+      leave F 33[ name = x argument= {\y.{\z.(x (y z))}} ]
+     leave F 32[ name = x argument= {\y.{\z.(x (y z))}} ]
+    exit I 114
+   exit A 75
+  exit J 11
+ found ';'
+ exit S 28
+ enter S 29
+  enter J 12
+  found 'combinator'
+  found identifier 'Phi'
+   enter A 80
+    enter I 121
+    found '('
+     enter A 81
+      enter I 122
+       enter F 36
+       found ''
+       found identifier 'p'
+       found '.'
+        enter A 82
+         enter I 123
+          enter F 37
+          found ''
+          found identifier 'z'
+          found '.'
+           enter A 83
+            enter I 124
+            found identifier'z'
+            exit I 124
+            enter I 125
+            found '('
+             enter A 84
+              enter I 126
+              found Cidentifier'$S'
+              exit I 126
+              enter I 127
+              found '('
+               enter A 85
+                enter I 128
+                found identifier'p'
+                exit I 128
+                enter I 129
+                found Cidentifier'$T'
+                exit I 129
+               exit A 85
+              found ')'
+              exit I 127
+             exit A 84
+            found ')'
+            exit I 125
+            enter I 130
+            found '('
+             enter A 86
+              enter I 131
+              found identifier'p'
+              exit I 131
+              enter I 132
+              found Cidentifier'$T'
+              exit I 132
+             exit A 86
+            found ')'
+            exit I 130
+           exit A 83
+          leave F 37[ name = z argument= ((z ($S (p $T))) (p $T)) ]
+         exit I 123
+        exit A 82
+       leave F 36[ name = p argument= {\z.((z ($S (p $T))) (p $T))} ]
+      exit I 122
+     exit A 81
+    found ')'
+    exit I 121
+   exit A 80
+  exit J 12
+ found ';'
+ exit S 29
+ enter S 30
+  enter J 13
+  found 'combinator'
+  found identifier 'P'
+   enter A 87
+    enter I 133
+    found '('
+     enter A 88
+      enter I 134
+       enter F 38
+       found ''
+       found identifier 'n'
+       found '.'
+        enter A 89
+         enter I 135
+         found identifier'n'
+         exit I 135
+         enter I 136
+         found Cidentifier'$Phi'
+         exit I 136
+         enter I 137
+         found '('
+          enter A 90
+           enter I 138
+            enter F 39
+            found ''
+            found identifier 'z'
+            found '.'
+             enter A 91
+              enter I 139
+              found identifier'z'
+              exit I 139
+              enter I 140
+              found '('
+               enter A 92
+                enter I 141
+                found Cidentifier'$Zero'
+                exit I 141
+                enter I 142
+                found Cidentifier'$Zero'
+                exit I 142
+               exit A 92
+              found ')'
+              exit I 140
+             exit A 91
+            leave F 39[ name = z argument= (z ($Zero $Zero)) ]
+           exit I 138
+          exit A 90
+         found ')'
+         exit I 137
+         enter I 143
+         found Cidentifier'$F'
+         exit I 143
+        exit A 89
+       leave F 38[ name = n argument= (((n $Phi) {\z.(z ($Zero $Zero))}) $F) ]
+      exit I 134
+     exit A 88
+    found ')'
+    exit I 133
+   exit A 87
+  exit J 13
+ found ';'
+ exit S 30
+ enter S 31
+  enter J 14
+  found 'combinator'
+  found identifier 'Zt'
+   enter A 93
+    enter I 144
+    found '('
+     enter A 94
+      enter I 145
+       enter F 40
+       found ''
+       found identifier 'x'
+       found '.'
+        enter A 95
+         enter I 146
+         found identifier'x'
+         exit I 146
+         enter I 147
+         found Cidentifier'$F'
+         exit I 147
+         enter I 148
+         found Cidentifier'$N'
+         exit I 148
+         enter I 149
+         found Cidentifier'$F'
+         exit I 149
+        exit A 95
+       leave F 40[ name = x argument= (((x $F) $N) $F) ]
+      exit I 145
+     exit A 94
+    found ')'
+    exit I 144
+   exit A 93
+  exit J 14
+ found ';'
+ exit S 31
+ enter S 32
+  enter L 0
+  found 'dictionary'
+Combinator Dictionary is:
+M: {\x.{\y.{\z.(x (y z))}}}
+N1: {\x.((x $T1) $T2)}
+N2: {\x.{\y.((x y) $T2)}}
+N3: {\x.{\y.((x $N1) y)}}
+P: {\n.(((n $Phi) {\z.(z ($Zero $Zero))}) $F)}
+PS: {\x.(x $S)}
+Phi: {\p.{\z.((z ($S (p $T))) (p $T))}}
+S: {\w.{\y.{\x.(y ((w y) x))}}}
+Snap: {\s.{\z.z}}
+T1: {\x.{\y.x}}
+T2: {\x.{\y.y}}
+Y: {\y.({\x.(y (x x))} {\x.(y (x x))})}
+Zt: {\x.(((x $F) $N) $F)}
+triple: {\x.((x x) x)}
+twice: {\x.(x x)}
+  exit L 0
+ found ';'
+ exit S 32
+exit P 0

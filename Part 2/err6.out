@@ -1,0 +1,4 @@
+Eval expression: {\setting.(setting left)}
+Eval expression: {\setl.outset}
+
+***ERROR (line 4): F expecting expression after variable

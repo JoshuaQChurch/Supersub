@@ -1,0 +1,24 @@
+combinator evaluate X (\x.\y.x) ;
+combinator evaluate F (\x.\y.y) ;
+combinator N (\x.x $F $X) ; 
+combinator A (\x.\y.x y $F) ;
+combinator O (\x.\y.x $X y) ;
+combinator Y (\y.(\x.y(x x))(\x.y(x x))) ;
+combinator S \w.\y.\x. y (w y x) ;
+combinator evaluate C1 $S $F ;
+combinator C2 $S $C1 ;
+combinator A1 (\x.x $S) ;
+combinator M1 {\x.\y.\z.x(y z)} ;
+evaluate $Y ($N $X) ;
+evaluate $A1 $C1 $C2 ;
+evaluate $M1 $F $C2 ;
+evaluate $F ($M1 $C1 $C2) ($A1 $C1 $C2) ;
+set preOrderEvaluate 0 ;
+evaluate $A1 $C1 $C2 ;
+evaluate $M1 $F $C2 ;
+evaluate $F ($M1 $C1 $C2) ($A1 $C1 $C2) ;
+set printLevel 0 ;
+evaluate $M1 ($M1 $C2 $C2) ($M1 $C2 $C2) ;
+set maxEvalSteps 20 ;
+evaluate $Y ($N $X) ;
+

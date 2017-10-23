@@ -1,0 +1,2 @@
+#incorrect substitution form
+combinator x \x y. x x y ;

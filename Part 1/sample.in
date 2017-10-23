@@ -1,0 +1,9 @@
+# The input can also admit comments
+# comments are all characters after a '#' symbol to the end-of-line
+Ab123("hello world") @ 321ab
+forever set int  < <>
+\ / $set.7 setting set ;
+#This is a comment in the middle
+float 12.34 int 234
+string  or & 
+"I'm a string, I'm also a string"

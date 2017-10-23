@@ -1,0 +1,9 @@
+evaluate (\x.\y. y x) A B ;
+evaluate (\x.\y. x (x y)) A B ;
+evaluate (\x.\y. x y) (\x.x x) A ;
+evaluate (\x.\y. x (x (x y))) (\x. x x) A ;
+set preOrderEvaluate 0 ;
+evaluate (\x.\y. y x) A B ;
+evaluate (\x.\y. x (x y)) A B ;
+evaluate (\x.\y. x y) (\x.x x) A ;
+evaluate (\x.\y. x (x (x y))) (\x. x x) A ;

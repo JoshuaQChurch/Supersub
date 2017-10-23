@@ -1,0 +1,71 @@
+# Compute the sum of the first n
+# squares where is is the argument
+# to the combinator
+
+set printLevel 0 ;
+
+# Raise the maximum steps to evaluate a bigger value (if needed)
+set maxEvalSteps 10000000;
+
+# True
+combinator True (\x.\y.x) ;
+
+# False
+combinator False (\x.\y.y) ;
+
+# Not
+combinator Not (\x.x $False $True) ;
+
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Predecessor Function
+combinator Phi (\p.\z.z($S (p $True))(p $True)) ;
+combinator P (\n.n $Phi(\z.z ($Zero $Zero)) $False) ;
+
+# Zero Test
+combinator Ztest (\x.x $False $Not $False) ;
+
+# Number Addition
+combinator Add (\n.\m. \f.\x. n f (m f x)) ;
+
+# Number Multiplication
+combinator Mul {\x.\y.\z.x(y z)} ;
+
+# Square Function
+combinator square {\x. $Mul x x} ;
+
+#control (Y combinator for recursion)
+combinator Y (\y.(\x.y(x x))(\x.y(x x))) ;
+
+# Recursively square and sum values
+combinator recursiveSum (\f.\n. ($Ztest n $Zero ( $Add ($square n) (f ($P n))))) ;
+combinator factorial $Y $recursiveSum ;
+
+# Sum of squares
+combinator sumsq (\x. $Ztest x $Zero ($factorial x)) ;
+
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+
+# 0^2 = 0
+#evaluate $sumsq $Zero ;
+
+# 1^2 = 1
+#evaluate $sumsq $One ;
+
+# 2^2 + 1^2 = 5
+#evaluate $sumsq $Two ;
+
+# 3^2 + 2^2 + 1^2 = 14
+#evaluate $sumsq $Three ;

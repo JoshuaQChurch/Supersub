@@ -1,0 +1,30 @@
+lexeme: |Ab123|, length: 5, token: 4000, line=3
+lexeme: |(|, length: 1, token: 2001, line=3
+lexeme: |"hello world"|, length: 13, token: 4004, line=3
+lexeme: |)|, length: 1, token: 2002, line=3
+lexeme: |@|, length: 1, token: 6000, line=3
+   ERROR: unknown token
+lexeme: |321|, length: 3, token: 4002, line=3
+lexeme: |ab|, length: 2, token: 4000, line=3
+lexeme: |forever|, length: 7, token: 4000, line=4
+lexeme: |set|, length: 3, token: 1004, line=4
+lexeme: |int|, length: 3, token: 1100, line=4
+lexeme: |<|, length: 1, token: 3008, line=4
+lexeme: |<>|, length: 2, token: 3010, line=4
+lexeme: |\|, length: 1, token: 3000, line=5
+lexeme: |/|, length: 1, token: 3005, line=5
+lexeme: |$set|, length: 4, token: 4001, line=5
+lexeme: |.|, length: 1, token: 3001, line=5
+lexeme: |7|, length: 1, token: 4002, line=5
+lexeme: |setting|, length: 7, token: 4000, line=5
+lexeme: |set|, length: 3, token: 1004, line=5
+lexeme: |;|, length: 1, token: 2000, line=5
+lexeme: |float|, length: 5, token: 1101, line=7
+lexeme: |12.34|, length: 5, token: 4003, line=7
+lexeme: |int|, length: 3, token: 1100, line=7
+lexeme: |234|, length: 3, token: 4002, line=7
+lexeme: |string|, length: 6, token: 1102, line=8
+lexeme: |or|, length: 2, token: 3012, line=8
+lexeme: |&|, length: 1, token: 6000, line=8
+   ERROR: unknown token
+lexeme: |"I'm a string, I'm also a string"|, length: 33, token: 4004, line=9

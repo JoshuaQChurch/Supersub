@@ -1,0 +1,27 @@
+# This file will square a number
+
+set printLevel 0 ;
+
+# True
+combinator True (\x.\y.x) ;
+
+#False
+combinator False (\x.\y.y) ;
+
+# Successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Number Multiplication
+combinator Mul {\x.\y.\z.x(y z)} ;
+
+# Square Function
+combinator square {\x. $Mul x x} ;
+
+# helpful shortcuts to numbers 1-10
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+
+# Evaluate the expression
+#evaluate $square $Three ;

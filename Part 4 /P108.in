@@ -1,0 +1,37 @@
+# makeTriple
+
+set printLevel 0 ;
+
+# successor
+combinator S \w.\y.\x. y (w y x) ;
+
+# Church Numerals
+combinator evaluate Zero \s.\z.z ;
+combinator evaluate One ($S $Zero) ;
+combinator evaluate Two ($S $One) ;
+combinator evaluate Three ($S $Two) ;
+combinator evaluate Four ($S $Three) ;
+combinator evaluate Five ($S $Four) ;
+combinator evaluate Six ($S $Five) ;
+combinator evaluate Seven ($S $Six) ;
+combinator evaluate Eight ($S $Seven) ;
+combinator evaluate Nine ($S $Eight) ;
+combinator evaluate Ten ($S $Nine) ;
+
+# makeTriple
+combinator makeTriple(\x.\y.\z.\f. ((f x) y) z) ;
+
+# getFirst
+combinator getFirst(\f. f(\x.\y.\z. x)) ;
+
+# getSecond
+combinator getSecond(\f. f(\x.\y.\z. y)) ;
+
+# getThird
+combinator getThird(\f. f(\x.\y.\z. z)) ;
+
+# Evaluate the Expression
+combinator evaluate triple $makeTriple $One $Two $Three ;
+#evaluate $getFirst $triple;
+#evaluate $getSecond $triple;
+#evaluate $getThird $triple;
